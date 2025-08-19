@@ -18,7 +18,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-// ---------- CONFIG: Edit these to personalize ----------
+// ---------- CONFIG ----------
 const PROFILE = {
   name: "Sesham Surya Vamsi",
   title: "Aspiring Data Engineer • Software Developer",
@@ -26,7 +26,7 @@ const PROFILE = {
   email: "suryavamsis005@gmail.com",
   github: "https://github.com/SESHAMSURYAVAMSI",
   linkedin: "https://www.linkedin.com/in/sesham-surya-vamsi-58157b241/",
-  resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
+  resumeUrl: "/resume.pdf",
   summary:
     "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data-driven solutions and growing into a Data Engineering role.",
   strengths: ["Problem-solving", "Teamwork", "Leadership", "Quick learning"],
@@ -47,23 +47,23 @@ const PROFILE = {
       title: "Software Development Internship",
       issuer: "SaaScraft Studio (India) Pvt Ltd",
       year: "2025",
-      link: "/internship-certificate.pdf", // place this file in public/
+      link: "/internship-certificate.pdf",
     },
     {
-      title: "Traning Certifiacte",
+      title: "Training Certificate",
       issuer: "Brand Zappy",
       year: "2022",
       link: "http://drive.google.com/file/d/1iepUg-XAXxsxeV_0ILluwR83nha86xpJ/view",
     },
     {
-      title: "BootCamp on Python and Artifical Intelligence",
+      title: "BootCamp on Python and Artificial Intelligence",
       issuer: "Dewtown",
       year: "2023",
       link: "https://drive.google.com/file/d/1E0TlTRxO2_24vGYxYRiTpZBzkgNk2ofJ/view",
     },
-     {
-      title: "Microsoft student ambassador",
-      issuer: "Dewtown",
+    {
+      title: "Microsoft Student Ambassador",
+      issuer: "Microsoft",
       year: "2023",
       link: "https://drive.google.com/file/d/1ZDwWNNeh7ezLGgZRi98WQ5eJB3p-qoKD/view",
     },
@@ -84,20 +84,9 @@ const PROFILE = {
 };
 // -------------------------------------------------------
 
-function Section({
-  id,
-  title,
-  children,
-}: {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-}) {
+function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section
-      id={id}
-      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
-    >
+    <section id={id} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,20 +109,63 @@ function Nav() {
     else root.classList.remove("dark");
   }, [dark]);
 
+  // Animation Variants
+  const navVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, duration: 0.4 },
+    },
+  };
+
+  const linkVariants = {
+    hidden: { opacity: 0, y: -5 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <header className="sticky top-0 z-30 backdrop-blur bg-white/70 dark:bg-neutral-900/70 border-b border-neutral-200 dark:border-neutral-800">
+    <motion.header
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="sticky top-0 z-30 backdrop-blur bg-white/70 dark:bg-neutral-900/70 border-b border-neutral-200 dark:border-neutral-800"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" className="font-semibold tracking-tight text-lg">
           {PROFILE.name}
         </a>
-        <nav className="hidden sm:flex items-center gap-6 text-sm">
-          <a href="#about" className="hover:underline">About</a>
-          <a href="#skills" className="hover:underline">Skills</a>
-          <a href="#projects" className="hover:underline">Projects</a>
-          <a href="#certificates" className="hover:underline">Certificates</a>
-          <a href="#experience" className="hover:underline">Experience</a>
-          <a href="#contact" className="hover:underline">Contact</a>
-        </nav>
+
+        {/* Animated Nav Links */}
+        <motion.nav
+          className="hidden sm:flex items-center gap-6 text-sm"
+          variants={navVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {[
+            { id: "about", label: "About" },
+            { id: "skills", label: "Skills" },
+            { id: "projects", label: "Projects" },
+            { id: "certificates", label: "Certificates" },
+            { id: "experience", label: "Experience" },
+            { id: "contact", label: "Contact" },
+          ].map((link) => (
+            <motion.a
+              key={link.id}
+              href={`#${link.id}`}
+              variants={linkVariants}
+              whileHover={{ scale: 1.1, color: "#3b82f6" }}
+              whileTap={{ scale: 0.95 }}
+              className="relative group"
+            >
+              {link.label}
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+            </motion.a>
+          ))}
+        </motion.nav>
+
+        {/* Theme Toggle + Resume */}
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -144,14 +176,18 @@ function Nav() {
           >
             {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </Button>
+
+          {/* Resume with pulse hover */}
           <a href={PROFILE.resumeUrl} target="_blank" rel="noreferrer">
-            <Button className="rounded-2xl">
-              <Download className="w-4 h-4 mr-2" /> Resume
-            </Button>
+            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
+              <Button className="rounded-2xl animate-pulse hover:animate-none">
+                <Download className="w-4 h-4 mr-2" /> Resume
+              </Button>
+            </motion.div>
           </a>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
 
@@ -159,48 +195,34 @@ function Hero() {
   return (
     <Section id="home" title="">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-5"
-        >
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 text-xs">
             <Database className="w-4 h-4" />
             <span>Data-driven • MongoDB • Python</span>
           </div>
 
-          {/* ✅ Profile Image */}
-          <Image
-            src="/profile.png"
-            alt="Profile picture"
-            width={180}
-            height={180}
-            className="rounded-full shadow-lg"
-          />
+          <Image src="/profile.png" alt="Profile picture" width={180} height={180} className="rounded-full shadow-lg" />
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-4">
-            {PROFILE.name}
-          </h1>
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-4">{PROFILE.name}</h1>
 
           <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-xl">
             {PROFILE.title} — {PROFILE.summary}
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="#projects">
-              <Button className="rounded-2xl">
+              <Button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} as={motion.button} className="rounded-2xl" >
                 <ArrowRight className="w-4 h-4 mr-2" />
                 View Projects
               </Button>
             </a>
             <a href={PROFILE.github} target="_blank" rel="noreferrer">
-              <Button variant="outline" className="rounded-2xl">
+              <Button as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} variant="outline" className="rounded-2xl">
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
               </Button>
             </a>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">
-              <Button variant="outline" className="rounded-2xl">
+              <Button as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} variant="outline" className="rounded-2xl">
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </Button>
@@ -208,28 +230,17 @@ function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="lg:justify-self-end"
-        >
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="lg:justify-self-end">
           <Card className="rounded-3xl shadow-sm">
             <CardContent className="p-6">
               <div className="grid grid-cols-2 gap-4">
                 {PROFILE.strengths.map((s) => (
-                  <div
-                    key={s}
-                    className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-sm"
-                  >
+                  <div key={s} className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-sm">
                     <Cpu className="w-4 h-4 inline mr-2" /> {s}
                   </div>
                 ))}
               </div>
-              <div className="mt-4 text-sm text-neutral-500">
-                Based in {PROFILE.location}
-              </div>
+              <div className="mt-4 text-sm text-neutral-500">Based in {PROFILE.location}</div>
             </CardContent>
           </Card>
         </motion.div>
@@ -243,16 +254,13 @@ function About() {
     <Section id="about" title="About">
       <div className="prose dark:prose-invert max-w-none">
         <p>
-          I’m a Software Development Intern focused on building reliable web
-          experiences and data workflows. I enjoy converting raw data into
-          useful features and insights using <strong>MongoDB</strong>,{" "}
-          <strong>Next.js</strong>, <strong>React.js</strong>, and{" "}
+          I’m a Software Development Intern focused on building reliable web experiences and data workflows. I enjoy converting raw data into
+          useful features and insights using <strong>MongoDB</strong>, <strong>Next.js</strong>, <strong>React.js</strong>, and{" "}
           <strong>Python</strong>.
         </p>
         <p>
-          My goal is to grow as a <strong>Data Engineer</strong>—designing
-          scalable data pipelines, clean schemas, and performant APIs that power
-          analytics and applications.
+          My goal is to grow as a <strong>Data Engineer</strong>—designing scalable data pipelines, clean schemas, and performant APIs that
+          power analytics and applications.
         </p>
       </div>
     </Section>
@@ -264,10 +272,7 @@ function Skills() {
     <Section id="skills" title="Skills">
       <div className="flex flex-wrap gap-3">
         {PROFILE.skills.map((skill) => (
-          <span
-            key={skill}
-            className="px-3 py-1 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm"
-          >
+          <span key={skill} className="px-3 py-1 rounded-full border border-neutral-300 dark:border-neutral-700 text-sm">
             {skill}
           </span>
         ))}
@@ -283,34 +288,24 @@ function Projects() {
         {PROFILE.projects.map((p) => (
           <motion.div
             key={p.title}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.4 }}
           >
             <Card className="rounded-3xl h-full">
               <CardContent className="p-6 flex flex-col h-full">
                 <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
-                  {p.description}
-                </p>
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3">{p.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {p.stack.map((t: string) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700"
-                    >
+                    <span key={t} className="text-xs px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700">
                       {t}
                     </span>
                   ))}
                 </div>
                 <div className="mt-auto">
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center text-sm hover:underline"
-                  >
+                  <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm hover:underline">
                     View <ExternalLink className="w-4 h-4 ml-1" />
                   </a>
                 </div>
@@ -330,10 +325,10 @@ function Certificates() {
         {PROFILE.certificates.map((c) => (
           <motion.div
             key={c.title}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.4 }}
           >
             <Card className="rounded-3xl h-full">
               <CardContent className="p-6 flex flex-col h-full">
@@ -342,12 +337,7 @@ function Certificates() {
                   {c.issuer} • {c.year}
                 </p>
                 <div className="mt-auto">
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center text-sm hover:underline"
-                  >
+                  <a href={c.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm hover:underline">
                     View Certificate <ExternalLink className="w-4 h-4 ml-1" />
                   </a>
                 </div>
@@ -365,21 +355,29 @@ function Experience() {
     <Section id="experience" title="Experience">
       <div className="space-y-4">
         {PROFILE.experience.map((e) => (
-          <Card key={e.role} className="rounded-3xl">
-            <CardContent className="p-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                <h3 className="text-lg font-semibold">
-                  {e.role} • {e.company}
-                </h3>
-                <div className="text-sm text-neutral-500">{e.period}</div>
-              </div>
-              <ul className="list-disc pl-6 space-y-1 text-sm">
-                {e.bullets.map((b: string, i: number) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+          <motion.div
+            key={e.role}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            <Card className="rounded-3xl">
+              <CardContent className="p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                  <h3 className="text-lg font-semibold">
+                    {e.role} • {e.company}
+                  </h3>
+                  <div className="text-sm text-neutral-500">{e.period}</div>
+                </div>
+                <ul className="list-disc pl-6 space-y-1 text-sm">
+                  {e.bullets.map((b: string, i: number) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </Section>
@@ -390,45 +388,64 @@ function Contact() {
   return (
     <Section id="contact" title="Contact">
       <div className="grid sm:grid-cols-3 gap-4">
-        <a href={`mailto:${PROFILE.email}`} className="group">
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          href={`mailto:${PROFILE.email}`}
+          className="group"
+        >
           <Card className="rounded-3xl h-full">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">Email</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">
-                  {PROFILE.email}
-                </div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">{PROFILE.email}</div>
               </div>
               <Mail className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
           </Card>
-        </a>
-        <a href={PROFILE.github} target="_blank" rel="noreferrer" className="group">
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          href={PROFILE.github}
+          target="_blank"
+          rel="noreferrer"
+          className="group"
+        >
           <Card className="rounded-3xl h-full">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">GitHub</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">
-                  github.com/SESHAMSURYAVAMSI
-                </div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">github.com/SESHAMSURYAVAMSI</div>
               </div>
               <Github className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
           </Card>
-        </a>
-        <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="group">
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          href={PROFILE.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="group"
+        >
           <Card className="rounded-3xl h-full">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">LinkedIn</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">
-                  /in/sesham-surya-vamsi
-                </div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">/in/sesham-surya-vamsi</div>
               </div>
               <Linkedin className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
           </Card>
-        </a>
+        </motion.a>
       </div>
     </Section>
   );
@@ -442,10 +459,16 @@ export default function PortfolioSite() {
       <About />
       <Skills />
       <Projects />
-      <Certificates /> {/* ✅ new section */}
+      <Certificates />
       <Experience />
       <Contact />
-      <footer className="border-t border-neutral-200 dark:border-neutral-800 py-8 mt-8 text-sm">
+      <motion.footer
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="border-t border-neutral-200 dark:border-neutral-800 py-8 mt-8 text-sm"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div>
             © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
@@ -454,7 +477,7 @@ export default function PortfolioSite() {
             Built with Next.js, Tailwind, and ❤
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 }
