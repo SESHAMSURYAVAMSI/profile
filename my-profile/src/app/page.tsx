@@ -15,7 +15,7 @@ const PROFILE = {
   email: "suryavamsis005@gmail.com",
   github: "https://github.com/SESHAMSURYAVAMSI",
   linkedin: "https://www.linkedin.com/in/sesham-surya-vamsi-58157b241/",
-  // resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
+  resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
   summary:
     "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data‑driven solutions and growing into a Data Engineering role.",
   strengths: ["Problem‑solving", "Teamwork", "Leadership", "Quick learning"],
@@ -27,22 +27,22 @@ const PROFILE = {
       stack: ["Ardunio IDE", "IoT Sensors"],
       description:
         "The main objective of this project is to provide the sufficient environmental conditions to the silkworm inside the incubator. By using Arduino IDE as software tool and other hardware tools to design the prototype of silkworm incubator.",
-      link: "https://github.com/yourusername/election-management",
+      link: "https://ieeexplore.ieee.org/abstract/document/10166987",
     },
-    {
-      title: "Portfolio + Blog",
-      stack: ["Next.js", "React", "MDX"],
-      description:
-        "A fast personal site with blog support, SEO optimization, and CMS‑ready content structure.",
-      link: "https://github.com/yourusername/portfolio-blog",
-    },
-    {
-      title: "ETL Prototype",
-      stack: ["Python", "Pandas", "CSV/JSON"],
-      description:
-        "An end‑to‑end mini data pipeline to extract survey data, transform it, and load aggregated insights into MongoDB.",
-      link: "https://github.com/yourusername/python-etl-prototype",
-    },
+    // {
+    //   title: "Portfolio + Blog",
+    //   stack: ["Next.js", "React", "MDX"],
+    //   description:
+    //     "A fast personal site with blog support, SEO optimization, and CMS‑ready content structure.",
+    //   link: "https://github.com/yourusername/portfolio-blog",
+    // },
+    // {
+    //   title: "ETL Prototype",
+    //   stack: ["Python", "Pandas", "CSV/JSON"],
+    //   description:
+    //     "An end‑to‑end mini data pipeline to extract survey data, transform it, and load aggregated insights into MongoDB.",
+    //   link: "https://github.com/yourusername/python-etl-prototype",
+    // },
   ],
   experience: [
     {
@@ -274,7 +274,7 @@ function Contact() {
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">GitHub</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">github.com/yourusername</div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">github.com/SESHAMSURYAVAMSI</div>
               </div>
               <Github className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
@@ -285,7 +285,7 @@ function Contact() {
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">LinkedIn</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">/in/yourusername</div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">/in/sesham-surya-vamsi</div>
               </div>
               <Linkedin className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
