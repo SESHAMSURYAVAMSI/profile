@@ -9,13 +9,13 @@ import { Button } from "@/components/ui/button";
 
 // ---------- CONFIG: Edit these to personalize ----------
 const PROFILE = {
-  name: "Your Name",
+  name: "Sesham Surya Vamsi",
   title: "Aspiring Data Engineer • Software Developer",
   location: "India",
-  email: "you@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://www.linkedin.com/in/yourusername/",
-  resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
+  email: "suryavamsis005@gmail.com",
+  github: "https://github.com/SESHAMSURYAVAMSI",
+  linkedin: "https://www.linkedin.com/in/sesham-surya-vamsi-58157b241/",
+  // resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
   summary:
     "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data‑driven solutions and growing into a Data Engineering role.",
   strengths: ["Problem‑solving", "Teamwork", "Leadership", "Quick learning"],
