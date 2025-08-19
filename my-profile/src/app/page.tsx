@@ -1,10 +1,20 @@
 "use client";
 
-
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Download, Database, Cpu, Moon, Sun, ExternalLink, ArrowRight } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Download,
+  Database,
+  Cpu,
+  Moon,
+  Sun,
+  ExternalLink,
+  ArrowRight,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -18,33 +28,47 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/sesham-surya-vamsi-58157b241/",
   resumeUrl: "/resume.pdf", // put a file named resume.pdf at the site root
   summary:
-    "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data‑driven solutions and growing into a Data Engineering role.",
-  strengths: ["Problem‑solving", "Teamwork", "Leadership", "Quick learning"],
+    "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data-driven solutions and growing into a Data Engineering role.",
+  strengths: ["Problem-solving", "Teamwork", "Leadership", "Quick learning"],
   skills: ["MongoDB", "Next.js", "React.js", "Python"],
-  // Showcase 2–4 projects. Links can point to GitHub or live demos.
+
   projects: [
     {
       title: "Silkworm Incubator",
-      stack: ["Ardunio IDE", "IoT Sensors"],
+      stack: ["Arduino IDE", "IoT Sensors"],
       description:
-        "The main objective of this project is to provide the sufficient environmental conditions to the silkworm inside the incubator. By using Arduino IDE as software tool and other hardware tools to design the prototype of silkworm incubator.",
+        "The main objective of this project is to provide the sufficient environmental conditions to the silkworm inside the incubator. By using Arduino IDE as software tool and other hardware tools to design the prototype of silkworm incubator.",
       link: "https://ieeexplore.ieee.org/abstract/document/10166987",
     },
-    // {
-    //   title: "Portfolio + Blog",
-    //   stack: ["Next.js", "React", "MDX"],
-    //   description:
-    //     "A fast personal site with blog support, SEO optimization, and CMS‑ready content structure.",
-    //   link: "https://github.com/yourusername/portfolio-blog",
-    // },
-    // {
-    //   title: "ETL Prototype",
-    //   stack: ["Python", "Pandas", "CSV/JSON"],
-    //   description:
-    //     "An end‑to‑end mini data pipeline to extract survey data, transform it, and load aggregated insights into MongoDB.",
-    //   link: "https://github.com/yourusername/python-etl-prototype",
-    // },
   ],
+
+  certificates: [
+    {
+      title: "Software Development Internship",
+      issuer: "SaaScraft Studio (India) Pvt Ltd",
+      year: "2025",
+      link: "/internship-certificate.pdf", // place this file in public/
+    },
+    {
+      title: "Traning Certifiacte",
+      issuer: "Brand Zappy",
+      year: "2022",
+      link: "http://drive.google.com/file/d/1iepUg-XAXxsxeV_0ILluwR83nha86xpJ/view",
+    },
+    {
+      title: "BootCamp on Python and Artifical Intelligence",
+      issuer: "Dewtown",
+      year: "2023",
+      link: "https://drive.google.com/file/d/1E0TlTRxO2_24vGYxYRiTpZBzkgNk2ofJ/view",
+    },
+     {
+      title: "Microsoft student ambassador",
+      issuer: "Dewtown",
+      year: "2023",
+      link: "https://drive.google.com/file/d/1ZDwWNNeh7ezLGgZRi98WQ5eJB3p-qoKD/view",
+    },
+  ],
+
   experience: [
     {
       role: "Software Development Intern",
@@ -53,16 +77,27 @@ const PROFILE = {
       bullets: [
         "Built responsive features using React.js and Next.js, improving page interactions and performance.",
         "Designed MongoDB schemas and implemented CRUD APIs for core modules.",
-        "Contributed to code reviews, debugging, and Agile sprints with cross‑functional teams.",
+        "Contributed to code reviews, debugging, and Agile sprints with cross-functional teams.",
       ],
     },
   ],
 };
 // -------------------------------------------------------
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section id={id} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section
+      id={id}
+      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -88,16 +123,25 @@ function Nav() {
   return (
     <header className="sticky top-0 z-30 backdrop-blur bg-white/70 dark:bg-neutral-900/70 border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#home" className="font-semibold tracking-tight text-lg">{PROFILE.name}</a>
+        <a href="#home" className="font-semibold tracking-tight text-lg">
+          {PROFILE.name}
+        </a>
         <nav className="hidden sm:flex items-center gap-6 text-sm">
           <a href="#about" className="hover:underline">About</a>
           <a href="#skills" className="hover:underline">Skills</a>
           <a href="#projects" className="hover:underline">Projects</a>
+          <a href="#certificates" className="hover:underline">Certificates</a>
           <a href="#experience" className="hover:underline">Experience</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={() => setDark((d) => !d)} aria-label="Toggle theme" className="rounded-2xl">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setDark((d) => !d)}
+            aria-label="Toggle theme"
+            className="rounded-2xl"
+          >
             {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </Button>
           <a href={PROFILE.resumeUrl} target="_blank" rel="noreferrer">
@@ -123,8 +167,10 @@ function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 text-xs">
             <Database className="w-4 h-4" />
-            <span>Data‑driven • MongoDB • Python</span>
+            <span>Data-driven • MongoDB • Python</span>
           </div>
+
+          {/* ✅ Profile Image */}
           <Image
             src="/profile.png"
             alt="Profile picture"
@@ -132,16 +178,33 @@ function Hero() {
             height={180}
             className="rounded-full shadow-lg"
           />
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mt-4">
             {PROFILE.name}
           </h1>
+
           <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-xl">
             {PROFILE.title} — {PROFILE.summary}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="#projects"><Button className="rounded-2xl"><ArrowRight className="w-4 h-4 mr-2"/>View Projects</Button></a>
-            <a href={PROFILE.github} target="_blank" rel="noreferrer"><Button variant="outline" className="rounded-2xl"><Github className="w-4 h-4 mr-2"/>GitHub</Button></a>
-            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer"><Button variant="outline" className="rounded-2xl"><Linkedin className="w-4 h-4 mr-2"/>LinkedIn</Button></a>
+            <a href="#projects">
+              <Button className="rounded-2xl">
+                <ArrowRight className="w-4 h-4 mr-2" />
+                View Projects
+              </Button>
+            </a>
+            <a href={PROFILE.github} target="_blank" rel="noreferrer">
+              <Button variant="outline" className="rounded-2xl">
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </Button>
+            </a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">
+              <Button variant="outline" className="rounded-2xl">
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </Button>
+            </a>
           </div>
         </motion.div>
 
@@ -156,12 +219,17 @@ function Hero() {
             <CardContent className="p-6">
               <div className="grid grid-cols-2 gap-4">
                 {PROFILE.strengths.map((s) => (
-                  <div key={s} className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-sm">
+                  <div
+                    key={s}
+                    className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-sm"
+                  >
                     <Cpu className="w-4 h-4 inline mr-2" /> {s}
                   </div>
                 ))}
               </div>
-              <div className="mt-4 text-sm text-neutral-500">Based in {PROFILE.location}</div>
+              <div className="mt-4 text-sm text-neutral-500">
+                Based in {PROFILE.location}
+              </div>
             </CardContent>
           </Card>
         </motion.div>
@@ -175,11 +243,16 @@ function About() {
     <Section id="about" title="About">
       <div className="prose dark:prose-invert max-w-none">
         <p>
-          I’m a Software Development Intern focused on building reliable web experiences and data workflows.
-          I enjoy converting raw data into useful features and insights using <strong>MongoDB</strong>, <strong>Next.js</strong>, <strong>React.js</strong>, and <strong>Python</strong>.
+          I’m a Software Development Intern focused on building reliable web
+          experiences and data workflows. I enjoy converting raw data into
+          useful features and insights using <strong>MongoDB</strong>,{" "}
+          <strong>Next.js</strong>, <strong>React.js</strong>, and{" "}
+          <strong>Python</strong>.
         </p>
         <p>
-          My goal is to grow as a <strong>Data Engineer</strong>—designing scalable data pipelines, clean schemas, and performant APIs that power analytics and applications.
+          My goal is to grow as a <strong>Data Engineer</strong>—designing
+          scalable data pipelines, clean schemas, and performant APIs that power
+          analytics and applications.
         </p>
       </div>
     </Section>
@@ -218,15 +291,64 @@ function Projects() {
             <Card className="rounded-3xl h-full">
               <CardContent className="p-6 flex flex-col h-full">
                 <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3">{p.description}</p>
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                  {p.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {p.stack.map((t: string) => (
-                    <span key={t} className="text-xs px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700">{t}</span>
+                    <span
+                      key={t}
+                      className="text-xs px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700"
+                    >
+                      {t}
+                    </span>
                   ))}
                 </div>
                 <div className="mt-auto">
-                  <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm hover:underline">
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center text-sm hover:underline"
+                  >
                     View <ExternalLink className="w-4 h-4 ml-1" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Certificates() {
+  return (
+    <Section id="certificates" title="Certificates">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {PROFILE.certificates.map((c) => (
+          <motion.div
+            key={c.title}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35 }}
+          >
+            <Card className="rounded-3xl h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                  {c.issuer} • {c.year}
+                </p>
+                <div className="mt-auto">
+                  <a
+                    href={c.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center text-sm hover:underline"
+                  >
+                    View Certificate <ExternalLink className="w-4 h-4 ml-1" />
                   </a>
                 </div>
               </CardContent>
@@ -246,7 +368,9 @@ function Experience() {
           <Card key={e.role} className="rounded-3xl">
             <CardContent className="p-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                <h3 className="text-lg font-semibold">{e.role} • {e.company}</h3>
+                <h3 className="text-lg font-semibold">
+                  {e.role} • {e.company}
+                </h3>
                 <div className="text-sm text-neutral-500">{e.period}</div>
               </div>
               <ul className="list-disc pl-6 space-y-1 text-sm">
@@ -271,7 +395,9 @@ function Contact() {
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">Email</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">{PROFILE.email}</div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">
+                  {PROFILE.email}
+                </div>
               </div>
               <Mail className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
@@ -282,7 +408,9 @@ function Contact() {
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">GitHub</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">github.com/SESHAMSURYAVAMSI</div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">
+                  github.com/SESHAMSURYAVAMSI
+                </div>
               </div>
               <Github className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
@@ -293,7 +421,9 @@ function Contact() {
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">LinkedIn</div>
-                <div className="text-sm text-neutral-600 dark:text-neutral-300">/in/sesham-surya-vamsi</div>
+                <div className="text-sm text-neutral-600 dark:text-neutral-300">
+                  /in/sesham-surya-vamsi
+                </div>
               </div>
               <Linkedin className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CardContent>
@@ -312,12 +442,17 @@ export default function PortfolioSite() {
       <About />
       <Skills />
       <Projects />
+      <Certificates /> {/* ✅ new section */}
       <Experience />
       <Contact />
       <footer className="border-t border-neutral-200 dark:border-neutral-800 py-8 mt-8 text-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</div>
-          <div className="text-neutral-500">Built with Next.js, Tailwind, and ❤</div>
+          <div>
+            © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+          </div>
+          <div className="text-neutral-500">
+            Built with Next.js, Tailwind, and ❤
+          </div>
         </div>
       </footer>
     </div>
