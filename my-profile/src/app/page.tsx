@@ -23,10 +23,10 @@ const PROFILE = {
   // Showcase 2–4 projects. Links can point to GitHub or live demos.
   projects: [
     {
-      title: "Election Management System",
-      stack: ["Next.js", "MongoDB", "Tailwind"],
+      title: "Silkworm Incubator",
+      stack: ["Ardunio IDE", "IoT Sensors"],
       description:
-        "A role‑based election platform with voters, candidates, and positions; secure authentication and admin dashboards.",
+        "The main objective of this project is to provide the sufficient environmental conditions to the silkworm inside the incubator. By using Arduino IDE as software tool and other hardware tools to design the prototype of silkworm incubator.",
       link: "https://github.com/yourusername/election-management",
     },
     {
