@@ -47,7 +47,7 @@ const PROFILE = {
   experience: [
     {
       role: "Software Development Intern",
-      company: "Your Company",
+      company: "SaaScraft Studio (India) Pvt Ltd",
       period: "2025 – Present",
       bullets: [
         "Built responsive features using React.js and Next.js, improving page interactions and performance.",
