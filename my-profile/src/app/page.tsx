@@ -18,6 +18,9 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+// Wrap Button with motion
+const MotionButton = motion(Button);
+
 // ---------- CONFIG ----------
 const PROFILE = {
   name: "Sesham Surya Vamsi",
@@ -84,9 +87,20 @@ const PROFILE = {
 };
 // -------------------------------------------------------
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section id={id} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section
+      id={id}
+      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -225,21 +239,19 @@ function Hero() {
           <div className="flex flex-wrap gap-3">
             {/* View Projects */}
             <a href="#projects">
-              <Button
-                as={motion.button}
+              <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="rounded-2xl bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-yellow-400/50 transition"
               >
                 <ArrowRight className="w-4 h-4 mr-2" />
                 View Projects
-              </Button>
+              </MotionButton>
             </a>
 
             {/* GitHub */}
             <a href={PROFILE.github} target="_blank" rel="noreferrer">
-              <Button
-                as={motion.button}
+              <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 variant="outline"
@@ -247,13 +259,12 @@ function Hero() {
               >
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
-              </Button>
+              </MotionButton>
             </a>
 
             {/* LinkedIn */}
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">
-              <Button
-                as={motion.button}
+              <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 variant="outline"
@@ -261,7 +272,7 @@ function Hero() {
               >
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
-              </Button>
+              </MotionButton>
             </a>
           </div>
         </motion.div>
