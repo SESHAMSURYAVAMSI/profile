@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sesham Surya Vamsi's Profile",
   description: "An aspiring Data Engineer and Software Developer",
+  icons: {
+    icon: "/favicon.ico", // ✅ path from public folder
+  },
 };
 
 export default function RootLayout({
