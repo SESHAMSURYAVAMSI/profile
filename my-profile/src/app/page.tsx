@@ -2,6 +2,7 @@
 
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download, Database, Cpu, Moon, Sun, ExternalLink, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -124,6 +125,13 @@ function Hero() {
             <Database className="w-4 h-4" />
             <span>Data‑driven • MongoDB • Python</span>
           </div>
+          <Image
+            src="/profile.png"
+            alt="Profile picture"
+            width={180}
+            height={180}
+            className="rounded-full shadow-lg"
+          />
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
             {PROFILE.name}
           </h1>
