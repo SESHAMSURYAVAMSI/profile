@@ -18,15 +18,15 @@ export default function Certificates() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            <Card className="rounded-3xl h-full">
+            <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
               <CardContent className="p-6 flex flex-col h-full">
                 <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
                   {c.issuer} • {c.year}
                 </p>
                 <div className="mt-auto">
-                  <a href={c.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-sm hover:underline">
-                    View Certificate <ExternalLink className="w-4 h-4 ml-1" />
+                  <a href={c.link} target="_blank" rel="noreferrer" className="group inline-flex items-center text-sm text-whie-600 transition-colors duration-300 hover:text-blue-800 dark:hover:text-blue-400">
+                    View Certificate <ExternalLink className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </div>
               </CardContent>

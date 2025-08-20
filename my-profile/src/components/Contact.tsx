@@ -18,7 +18,7 @@ export default function Contact() {
           href={`mailto:${PROFILE.email}`}
           className="group"
         >
-          <Card className="rounded-3xl h-full">
+          <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">Email</div>
@@ -38,7 +38,7 @@ export default function Contact() {
           rel="noreferrer"
           className="group"
         >
-          <Card className="rounded-3xl h-full">
+          <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">GitHub</div>
@@ -58,7 +58,7 @@ export default function Contact() {
           rel="noreferrer"
           className="group"
         >
-          <Card className="rounded-3xl h-full">
+          <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
             <CardContent className="p-6 flex items-center justify-between">
               <div>
                 <div className="font-medium">LinkedIn</div>
