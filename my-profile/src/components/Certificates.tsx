@@ -18,7 +18,7 @@ export default function Certificates() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
+            <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/45">
               <CardContent className="p-6 flex flex-col h-full">
                 <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
