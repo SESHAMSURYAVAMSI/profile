@@ -10,7 +10,7 @@ export const PROFILE = {
   summary:
     "Software Development Intern with hands-on experience in MongoDB, Next.js, React.js, and Python. Passionate about building scalable, data-driven solutions and growing into a Data Engineering role.",
   strengths: ["Problem-solving", "Teamwork", "Leadership", "Quick learning"],
-  skills: ["MongoDB", "Next.js", "React.js", "Python"],
+  // skills: ["MongoDB", "Next.js", "React.js", "Python"],
   projects: [
     {
       title: "Silkworm Incubator",
