@@ -17,7 +17,7 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-300/40">
+            <Card className="rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/45">
               <CardContent className="p-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
                   <h3 className="text-lg font-semibold">

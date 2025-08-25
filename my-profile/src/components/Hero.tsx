@@ -46,7 +46,7 @@ export default function Hero() {
               <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-2xl bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-yellow-400/50 transition"
+                className="rounded-2xl bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-teall-500/45 transition"
               >
                 <ArrowRight className="w-4 h-4 mr-2" />
                 View Projects
