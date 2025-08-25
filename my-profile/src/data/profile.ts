@@ -18,6 +18,7 @@ export const PROFILE = {
       description:
         "The main objective of this project is to provide the sufficient environmental conditions to the silkworm inside the incubator. By using Arduino IDE as software tool and other hardware tools to design the prototype of silkworm incubator.",
       link: "https://ieeexplore.ieee.org/abstract/document/10166987",
+      // image: "/projects/portfolio.png",
     },
   ],
   certificates: [
