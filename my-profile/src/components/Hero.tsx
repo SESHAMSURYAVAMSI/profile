@@ -46,7 +46,7 @@ export default function Hero() {
               <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-2xl bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-teall-500/45 transition"
+                className="rounded-2xl bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-teal-500/45 transition"
               >
                 <ArrowRight className="w-4 h-4 mr-2" />
                 View Projects
@@ -58,7 +58,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 variant="outline"
-                className="rounded-2xl border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-yellow-400/50 transition"
+                className="rounded-2xl border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-teal-500/45 transition"
               >
                 <Github className="w-4 h-4 mr-2" />
                 GitHub
@@ -70,7 +70,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 variant="outline"
-                className="rounded-2xl border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-yellow-400/50 transition"
+                className="rounded-2xl border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:shadow-lg hover:shadow-teal-500/45 transition"
               >
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
