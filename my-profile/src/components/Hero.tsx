@@ -79,7 +79,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -103,7 +103,37 @@ export default function Hero() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </motion.div> */}
+        <motion.div
+  initial={{ opacity: 0, y: 12 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="lg:justify-self-end"
+>
+  <Card className="rounded-3xl shadow-sm">
+    <CardContent className="p-6">
+      <div className="grid grid-cols-2 gap-4">
+        {PROFILE.strengths.map((s) => (
+          <motion.div
+            key={s}
+            whileHover={{ scale: 1.05, rotate: 1 }} // subtle hover animation
+            whileTap={{ scale: 0.97 }}
+            className="p-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-sm 
+                       transition-all duration-300 ease-in-out 
+                       hover:bg-blue-500/40 hover:text-white hover:shadow-md cursor-pointer"
+          >
+            <Cpu className="w-4 h-4 inline mr-2" /> {s}
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-4 text-sm text-neutral-500">
+        Based in {PROFILE.location}
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
+
       </div>
     </Section>
   );

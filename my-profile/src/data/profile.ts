@@ -2,7 +2,7 @@
 export const PROFILE = {
   name: "Sesham Surya Vamsi",
   title: "Aspiring Data Engineer • Software Developer",
-  location: "India",
+  location: "Hyderabad",
   email: "suryavamsis005@gmail.com",
   github: "https://github.com/SESHAMSURYAVAMSI",
   linkedin: "https://www.linkedin.com/in/sesham-surya-vamsi-58157b241/",
