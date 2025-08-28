@@ -112,7 +112,7 @@ export default function Hero() {
   className="lg:justify-self-end"
 >
   <Card className="rounded-3xl shadow-sm">
-    <CardContent className="p-6">
+    <CardContent className="p-4">
       <div className="grid grid-cols-2 gap-4">
         {PROFILE.strengths.map((s) => (
           <motion.div
