@@ -184,30 +184,30 @@ export default function Contact() {
             >
               <Linkedin className="w-5 h-5 text-neutral-300 hover:text-white" />
             </a>
-            <a
+            {/* <a
               href="https://x.com"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-full bg-neutral-800 hover:bg-gray-500 transition transform hover:scale-110"
             >
               <X className="w-5 h-5 text-neutral-300 hover:text-white" />
-            </a>
+            </a> */}
             <a
-              href="https://stackoverflow.com"
+              href="https://stackoverflow.com/users/31348460/surya"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-full bg-neutral-800 hover:bg-orange-500 transition transform hover:scale-110"
             >
               <FileStack className="w-5 h-5 text-neutral-300 hover:text-white" />
             </a>
-            <a
+            {/* <a
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-full bg-neutral-800 hover:bg-blue-500 transition transform hover:scale-110"
             >
               <Facebook className="w-5 h-5 text-neutral-300 hover:text-white" />
-            </a>
+            </a> */}
           </div>
         </motion.div>
       </div>
