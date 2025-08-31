@@ -29,7 +29,7 @@ export default function Nav() {
     visible: { opacity: 1, y: 0 },
   };
 
-  // Custom hover colors for each link (matching nav gradient vibe)
+  // Custom hover colors for each link
   const linkColors: Record<string, string> = {
     about: "hover:text-blue-300",
     skills: "hover:text-cyan-300",
@@ -99,10 +99,19 @@ export default function Nav() {
             {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </Button>
 
-          {/* Resume Button with rainbow gradient */}
+          {/* Resume Button - single color + blinking animation */}
           <a href={PROFILE.resumeUrl} target="_blank" rel="noreferrer">
-            <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
-              <Button className="rounded-xl bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-500 text-white border-none shadow-md hover:shadow-lg transition-all">
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ opacity: [1, 0.6, 1] }} // blinking effect
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Button className="rounded-xl bg-blue-600 text-white border-none shadow-md hover:shadow-lg transition-all">
                 <Download className="w-4 h-4 mr-2" /> Resume
               </Button>
             </motion.div>
