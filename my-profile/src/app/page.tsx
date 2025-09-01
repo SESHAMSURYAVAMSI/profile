@@ -43,7 +43,7 @@ export default function Page() {
             transition={{ duration: 0.5 }}
           >
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold">{PROFILE.name}</span>. All rights
+            <span className="font-semibold">{"SSV"}</span>. All rights
             reserved.
           </motion.div>
 
